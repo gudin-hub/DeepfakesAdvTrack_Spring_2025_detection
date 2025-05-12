@@ -24,12 +24,17 @@ Please acquire the download link from our Wechat.
 - Test set 1: UCAS_AISA-test1. No label is given.
 - Test set 2: UCAS_AISA-test2. It includes the images collected from Deepfake Generation and will be released at the last week of the practice.
 
-4. Start model inference
+
+4. Download the checkpoint
+
+Please download checkpoint file from https://pan.baidu.com/s/1Pb5tSECIMI4XfhuPjujPrw?pwd=ktv1 提取码: ktv1 
+
+5. Start model inference
 ```
 CUDA_VISIBLE_DEVICES=0 python inference.py \
     --your-team-name $YOUR_TEAM_NAME \
     --data-folder $YOUR_DATASET_PATH/test1 \
-    --model-weights ./utils/weights.ckpt \
+    --model-weights ./utils/sbi_ckpt_best.tar \
     --result-path $YOUR_SAVE_PATH
 ```
 
@@ -40,11 +45,3 @@ We evaluate a model according to AUC. Please refer to the corresponding file.
 python evaluate.py \
     --submit-path ${YOUR_SAVE_PATH}/${YOUR_TEAM_NAME}
 ```
-
-## ⚠️ Caution
-1. You can customize your transforms and models in `inference.py`. **DO NOT** modify any other codes, otherwise the way your results are calculated may be affected and your rating will be incorrect.
-2. Fake is mapped to 1 and Real is mapped to 0.
-
-## Acknowledgement
-This code is based on [DFGC_startkit](https://github.com/bomb2peng/DFGC_starterkit/tree/master).
-The source data is [CelebDF](https://github.com/yuezunli/celeb-deepfakeforensics).
