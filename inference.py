@@ -44,7 +44,7 @@ def get_opts():
     arg.add_argument(
         "--model_weights",
         type=str,
-        default='/home/huangjingjing/Security/detection_update/utils/sbi_ckpt_best.tar'
+        default='./utils/sbi_ckpt_best.tar'
         # default='./utils/efficientnetb4_ckpt_best.pth'
     )
     arg.add_argument(
